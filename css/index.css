@@ -1,3 +1,153 @@
+:root {
+    --primary: #B33335;
+    --primary-dark: #8C2A2B;
+    --primary-light: #D64548;
+    --secondary: #0d0d11;
+    --secondary-light: #15151b;
+    --accent: #3498DB;
+    --accent-light: #5DADE2;
+    --light: #FFFFFF;
+    --dark: #1E1E1E;
+    --gray-100: #F8F9FA;
+    --gray-200: #E9ECEF;
+    --gray-300: #DEE2E6;
+    --gray-400: #CED4DA;
+    --gray-500: #ADB5BD;
+    --gray-600: #6C757D;
+    --gray-700: #495057;
+    --gray-800: #343A40;
+    --gray-900: #212529;
+    --body-bg: #ececee;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --border-radius: 15px;
+}
+
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light);
+}
+
+main{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+header{
+    background-color: var(--primary-dark);
+}
+
+.home{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    text-align:center;
+}
+
+.home svg{
+    width: 2rem;
+    height: 2rem;
+    color: var(--gray-700);
+}
+
+.home h1{
+    color: var(--gray-900);
+    font-weight: 900;
+    font-size: 3ren;
+}
+
+.cards_div{
+    max-width: 1000px;
+    width: 100%;
+    background-color: var(--light);
+    padding: 3rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    box-shadow: var(--card-shadow);
+}
+
+.cards{
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--border-radius);
+}
+
+.card_Header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: var(--accent);
+    color: var(--light);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+.card_Header h2{
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.card_details{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.card_details div{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.card_details h3{
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.card_details h4{
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+
+.btnCenter{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btnPlus{
+    background-color: var(--primary);
+    color: var(--light);
+    border-radius: 100%;
+    padding: 1rem;
+    border: none;
+    transition: 0.5s;
+}
+
+.btnPlus:hover{
+    transition: 0.5s;
+    transform: scale(1.1);
+}
+
+.btnPlus svg{
+    height: 2rem;
+    width: 2rem;
+}
+
+.btnCenter button{
+    width: 100%;
+}
+
 .tamañoinput{
     max-width: 350px;
     padding: 10px;

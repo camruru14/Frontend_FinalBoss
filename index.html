@@ -8,92 +8,98 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">Registro de Peliculas</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
-                  </li>
-              </div>
-            </div>
-          </nav>
+    <header class="navbarH">
     </header>
-     
-        <div class="container mt-5">
+    
+    <main>
+        <div class="home">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clapperboard-icon lucide-clapperboard"><path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z"/><path d="m6.2 5.3 3.1 3.9"/><path d="m12.4 3.4 3.1 4"/><path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg>
             <h1>Películas</h1>
-            
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Título</th>
-                        <th scope="col">Género</th>
-                        <th scope="col">Director</th>
-                        <th scope="col">Año de Estreno</th>
-                        <th scope="col">Fecha de Creación</th>
-                    </tr>
-                </thead>
-                <tbody id="cuerpoTablaPeliculas" class="table-group-divider">
-                    </tbody>
-            </table>
         </div>
 
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Registrar</button>
-
-
-        <div class="modal fade modal-dialog modal-lg" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modaldiseño">
-
-                    <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Registro</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>  
-                <div>
-                    <form class="row g-3">
-                        <div class="col-md-6">
-                        <label for="nombrePelicula" class="form-label">Titulo</label>
-                        <input type="text" class="form-control" id="nombrePelicula" placeholder="Titulo ej. Chuky">
-                        </div>
-                        <div class="col-md-6">
-                        <label for="directorNombre" class="form-label">Director</label>
-                        <input type="text" class="form-control" id="directorNombre" placeholder="Ej. Fulanito">
-                        </div>
-                        <div class="col-12">
-                        <label for="Genero" class="form-label">Genero</label>
-                        <input type="text" class="form-control" id="Genero" placeholder="Ej. Terror">
-                        </div>
-
-                        <div class="col-12">
-                            <label for="Duracion" class="form-label">Duracion de la pelicula</label>
-                            <input type="time" class="form-control" id="Duracion">
-                        </div>
-
-                        <div class="col-12">
-                            <label for="anioestreno" class="form-label">Año de Estreno</label>
-                            <input type="month" class="form-control" id="anioestreno">
-                        </div>
-
-                        <div class="col-12">
-                            <label for="inputAddress" class="form-label">Fecha de Estreno</label>
-                            <input type="date" class="form-control" id="inputAddress">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Registrar</button>
-                        </div>
-                    </form>
+        <div id="div cards" class="cards_div">
+            <div class="cards">
+                <div class="card_Header">
+                    <h2>EL jorobado de nootredam</h2>
+                </div>
+                <div class="card_details">
+                    <div>
+                        <h4>Director:</h4>
+                        <h3></h3>
+                    </div>
+                    <div>
+                        <h4>Genero:</h4>
+                        <h3></h3>
+                    </div>
+                    <div>
+                        <h4>Año de Esteno:</h4>
+                        <h3></h3>
+                    </div>
+                    <div>
+                        <h4>Duracion en Minutos:</h4>
+                        <h3></h3>
+                    </div>
+                    <div>
+                        <h4>Fecha de Creacion:</h4>
+                        <h3></h3>
+                    </div>
+                </div>
+                <div class="btnCenter">
+                    <button type="button" onclick="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Actualizar</button>
+                    <button type="button" class="btn btn-danger">Borrar</button>
                 </div>
             </div>
         </div>
+
+        <button class="btnPlus">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-plus-icon lucide-circle-plus"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+        </button>
+    </main>
+
+    <div class="modal fade modal-dialog modal-lg" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modaldiseño">
+
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Registro</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>  
+            <div>
+                <form class="row g-3">
+                    <div class="col-md-6">
+                    <label for="nombrePelicula" class="form-label">Titulo</label>
+                    <input type="text" class="form-control" id="nombrePelicula" placeholder="Titulo ej. Chuky">
+                    </div>
+                    <div class="col-md-6">
+                    <label for="directorNombre" class="form-label">Director</label>
+                    <input type="text" class="form-control" id="directorNombre" placeholder="Ej. Fulanito">
+                    </div>
+                    <div class="col-12">
+                    <label for="Genero" class="form-label">Genero</label>
+                    <input type="text" class="form-control" id="Genero" placeholder="Ej. Terror">
+                    </div>
+
+                    <div class="col-12">
+                        <label for="Duracion" class="form-label">Duracion de la pelicula</label>
+                        <input type="time" class="form-control" id="Duracion">
+                    </div>
+
+                    <div class="col-12">
+                        <label for="anioestreno" class="form-label">Año de Estreno</label>
+                        <input type="month" class="form-control" id="anioestreno">
+                    </div>
+
+                    <div class="col-12">
+                        <label for="inputAddress" class="form-label">Fecha de Estreno</label>
+                        <input type="date" class="form-control" id="inputAddress">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-        
-            <button type="button" class="btn btn-danger">Danger</button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script type="module" src="js/index.js"></script>
