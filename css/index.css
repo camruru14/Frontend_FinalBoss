@@ -2,3 +2,9 @@
     max-width: 350px;
     padding: 10px;
 }
+
+.modal{
+    display: flex;
+    justify-content: center;
+    
+}
