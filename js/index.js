@@ -6,44 +6,114 @@ import{
     Eliminar
 }from "../js/ServicePeliculas.js"
 
-document.addEventListener('DOMContentLoaded', cargarDatosDeAPI);
+const div_cards = document.getElementById("div_cards");
 
-function cargarDatosDeAPI() {
-}
 
-function cargarDatosDeAPI() {
-    const API_URL = '';
- 
-    const tbody = document.getElementById('cuerpoTablaPeliculas');
-    
-    if (API_URL === '') {
-        tbody.innerHTML = '<tr><td colspan="6" class="text-danger">❌ Error: Por favor, reemplaza "TU_URL_DE_API_AQUI" con la URL real de tu API.</td></tr>';
-        return;
-    }
- 
-    fetch(API_URL)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Error en la red: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            data.forEach(item => {
-                const row = tbody.insertRow();
-                
-                
-                row.insertCell().textContent = item.id;
-                row.insertCell().textContent = item.titulo;
-                row.insertCell().textContent = item.genero;
-                row.insertCell().textContent = item.director;
-                row.insertCell().textContent = item.anio_estreno;
-                const fecha = new Date(item.fecha_creacion).toLocaleDateString();
-                row.insertCell().textContent = fecha;
+    //Funciones Service
+    async function CargarTodasPeliculas() {
+        try {
+            const res = await CargarTodo();
+            LlenarTarjetas(res);
+        } catch (err) {
+            console.error("Hubo problemas cargando las peliculas", err);
+            Swal.fire({
+                icon: "error",
+                title: "Hubo problemas cargando las peliculas",
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 1500
             });
-        })
-        .catch(error => {
-            console.error('Hubo un problema al cargar los datos:', error);
-            tbody.innerHTML = `<tr><td colspan="6" class="text-danger">Error al cargar datos: ${error.message}</td></tr>`;
+        }
+    }
+    async function BuscarPorID(id) {
+        try {
+            const res = await BuscarPorID(id);
+            console.log(res);
+            return res;
+        } catch (err) {
+            console.error("Hubo problemas cargando la pelicula", err);
+            Swal.fire({
+                icon: "error",
+                title: "Hubo problemas cargando la pelicula",
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+    }
+    async function EliminarPelicula(id) {
+        try {
+            const res = await Eliminar(id);
+            console.log(res);
+            if(res.ok){
+                
+            }else{
+                Swal.fire({
+                    icon: "error",
+                    title: "Hubo problemas cargando las peliculas",
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        } catch (err) {
+            console.error("Hubo problemas cargando las peliculas", err);
+            Swal.fire({
+                icon: "error",
+                title: "Hubo problemas cargando las peliculas",
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+    }
+
+    async function LlenarTarjetas(Peliculas) {
+        if(Peliculas.lenght == 0){
+            div_cards.innerHTML = '';
+            return
+        }
+
+        div_cards.innerHTML = '';
+        Peliculas.forEach(pelicula => {
+            div_cards.innerHTML += `
+                <div class="cards">
+                    <div class="card_Header">
+                        <h2>${pelicula.titulo}</h2>
+                    </div>
+                    <div class="card_details">
+                        <div>
+                            <h4>Director:</h4>
+                            <h3>${pelicula.director}</h3>
+                        </div>
+                        <div>
+                            <h4>Genero:</h4>
+                            <h3>${pelicula.genero}</h3>
+                        </div>
+                        <div>
+                            <h4>Año de Esteno:</h4>
+                            <h3>${pelicula.anio_estreno}</h3>
+                        </div>
+                        <div>
+                            <h4>Duracion en Minutos:</h4>
+                            <h3>${pelicula.duracion_min}</h3>
+                        </div>
+                        <div>
+                            <h4>Fecha de Creacion:</h4>
+                            <h3>${pelicula.fecha_creacion}</h3>
+                        </div>
+                    </div>
+                    <div class="btnCenter">
+                        <button type="button" onclick="ActualizarPelicula(${pelicula.id})" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Actualizar</button>
+                        <button type="button" onclick="EliminarPelicula(${pelicula.id})" class="btn btn-danger">Borrar</button>
+                    </div>
+                </div>
+            `;
         });
-}
+    }
+
+    function CargaInicial(){
+        CargarTodasPeliculas();
+    }
+
+document.addEventListener('DOMContentLoaded', CargaInicial);

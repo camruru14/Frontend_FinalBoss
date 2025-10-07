@@ -1,28 +1,36 @@
 const URL_API_PELICULAS = "http://localhost:8080/apiPeliculas";
-
+ 
 export async function CargarTodo() {
-    const res = await fetch(`${URL_API_PELICULAS}/getAll`)
-    return res.json;
+    const res = await fetch(`${URL_API_PELICULAS}/getAll`);
+    const data = await res.json();
+    return data;
 }
-
+ 
 export async function GetById(id) {
     const res = await fetch(`${URL_API_PELICULAS}/getById/${id}`)
-    return res.json;
+    const data = await res.json();
+    return data;
 }
-
+ 
 export async function Agregar(json) {
-    const res = await fetch(`${URL_API_PELICULAS}/postPelicula`, {
-        headers: 'Content-Type'
-    })
-    return res.json;
+    return await fetch(`${URL_API_PELICULAS}/postPelicula`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(json),
+    });
 }
-
+ 
+ 
 export async function Actualizar(id, json) {
-    const res = await fetch(`${URL_API_PELICULAS}`)
-    return res.json;
+    return await fetch(`${URL_API_PELICULAS}/putPelicula/${id}`, {
+        method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(json),
+    });
 }
-
+ 
 export async function Eliminar(id) {
-    const res = await fetch(`${URL_API_PELICULAS}`)
-    return res.json;
+    return await fetch(`${URL_API_PELICULAS}/deletePelicula/${id}`, {
+        method: "DELETE"
+    })
 }
