@@ -1,3 +1,11 @@
+import{
+    CargarTodo,
+    GetById,
+    Agregar,
+    Actualizar,
+    Eliminar
+}from "../js/ServicePeliculas.js"
+
 document.addEventListener('DOMContentLoaded', cargarDatosDeAPI);
 
 function cargarDatosDeAPI() {
